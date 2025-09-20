@@ -6,3 +6,19 @@ Currently I store configs for
 
 - zsh => shell
 - wezterm => terminal emulator
+
+## How to handle changes
+
+In the repository root, run the following commands to..
+
+
+Create new symlinks
+```zsh
+stow -n -t "$HOME" wezterm
+```
+
+Refresh new symlinks
+```zsh
+stow -R -t "$HOME" wezterm
+```
+
