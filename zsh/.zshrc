@@ -1,0 +1,21 @@
+# Load prezto if installed
+if [ -s "$HOME/.zprezto/init.zsh" ]; then
+  source "$HOME/.zprezto/init.zsh"
+fi
+
+# History
+HISTSIZE=100000
+SAVEHIST=100000
+HISTFILE="$HOME/.zsh_history"
+
+# Editor & PATH
+export EDITOR="nvim"
+export VISUAL="$EDITOR"
+path=("$HOME/.local/bin" $path)
+
+# Aliases
+alias ll='ls -alF'
+alias gs='git status -sb'
+alias gc='git commit'
+alias gp='git push'
+alias gl='git log --oneline --graph --decorate'

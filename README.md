@@ -14,11 +14,11 @@ In the repository root, run the following commands to..
 
 Create new symlinks
 ```zsh
-stow -n -t "$HOME" wezterm
+stow -n -t "$HOME" wezterm git zsh
 ```
 
 Refresh new symlinks
 ```zsh
-stow -R -t "$HOME" wezterm
+stow -R -t "$HOME" wezterm git zsh
 ```
 
