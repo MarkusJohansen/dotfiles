@@ -1,5 +1,16 @@
+# This is Git's per-user configuration file.
 [user]
-	email = markusarj@gmail.com
 	name = Markus A. R. Johansen
+	email = 90006516+MarkusJohansen@users.noreply.github.com
+# Please adapt and uncomment the following lines:
+#	name = Markus Johansen
+#	email = markusarj@gmail.com
 [push]
 	autoSetupRemote = true
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[http]
+	postBuffer = 100000000
