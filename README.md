@@ -31,4 +31,7 @@ Refresh new symlinks
 ```zsh
 stow -R -t "$HOME" wezterm git zsh
 ```
+## Environment variables
 
+To set new environment variables in a safe manner, DO NOT add them to the .zshrc as we dont want to push them.
+Instead we load a file at root called `.environment` for global variables. 
