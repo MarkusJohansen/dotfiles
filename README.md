@@ -6,6 +6,16 @@ Currently I store configs for
 
 - zsh => shell
 - wezterm => terminal emulator
+- git => version control
+
+## New device
+
+run this to ensure zprezto is installed
+
+```zsh
+test -d "${ZDOTDIR:-$HOME}/.zprezto" || \
+git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+```
 
 ## How to handle changes
 
