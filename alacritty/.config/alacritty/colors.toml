@@ -1,0 +1,66 @@
+# Alacritty Colors - Arthur Theme
+# Matching your Wezterm "Arthur" color scheme
+
+[colors.primary]
+background = "#1c1c1c"
+foreground = "#e6e6e6"
+bright_foreground = "#ffffff"
+dim_foreground = "#9a9a9a"
+
+[colors.cursor]
+text = "#1c1c1c"
+cursor = "#e6e6e6"
+
+[colors.vi_mode_cursor]
+text = "#1c1c1c"
+cursor = "#e6e6e6"
+
+[colors.selection]
+text = "#1c1c1c"
+background = "#404040"
+
+[colors.search]
+matches = { foreground = "#1c1c1c", background = "#e6e6e6" }
+focused_match = { foreground = "#1c1c1c", background = "#ff6b6b" }
+
+[colors.hints]
+start = { foreground = "#1c1c1c", background = "#f1fa8c" }
+end = { foreground = "#1c1c1c", background = "#50fa7b" }
+
+[colors.line_indicator]
+foreground = "#404040"
+background = "#1c1c1c"
+
+[colors.footer_bar]
+foreground = "#1c1c1c"
+background = "#e6e6e6"
+
+[colors.regular]
+"0" = "#1c1c1c"
+"1" = "#ff5555"
+"2" = "#50fa7b"
+"3" = "#f1fa8c"
+"4" = "#bd93f9"
+"5" = "#ff79c6"
+"6" = "#8be9fd"
+"7" = "#f8f8f2"
+
+[colors.bright]
+"0" = "#6272a4"
+"1" = "#ff6e6e"
+"2" = "#69ff94"
+"3" = "#ffffa5"
+"4" = "#d6acff"
+"5" = "#ff92df"
+"6" = "#a4ffff"
+"7" = "#ffffff"
+
+[colors.dim]
+"0" = "#21222c"
+"1" = "#ff5555"
+"2" = "#50fa7b"
+"3" = "#f1fa8c"
+"4" = "#bd93f9"
+"5" = "#ff79c6"
+"6" = "#8be9fd"
+"7" = "#f8f8f2"
