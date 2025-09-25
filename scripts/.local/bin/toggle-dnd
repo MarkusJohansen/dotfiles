@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Toggle Do Not Disturb mode for notifications
+
+if pgrep -x mako >/dev/null; then
+    if makoctl mode | grep -q "dnd"; then
+        makoctl mode default
+        notify-send "Notifications" "Do Not Disturb disabled"
+    else
+        makoctl mode dnd
+        notify-send "Notifications" "Do Not Disturb enabled"
+    fi
+else
+    notify-send "Error" "Mako notification daemon not running"
+fi

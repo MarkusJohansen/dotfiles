@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Toggle microphone mute/unmute
+
+# Get current microphone state
+mic_state=$(pactl get-source-mute @DEFAULT_SOURCE@ | awk '{print $2}')
+
+if [ "$mic_state" = "yes" ]; then
+    pactl set-source-mute @DEFAULT_SOURCE@ false
+    notify-send "Microphone" "Unmuted" -i audio-input-microphone
+else
+    pactl set-source-mute @DEFAULT_SOURCE@ true
+    notify-send "Microphone" "Muted" -i audio-input-microphone-muted
+fi
