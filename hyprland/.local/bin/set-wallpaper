@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+IMG="${1:-$HOME/.local/share/wallpapers/forest_river.jpg}"
+
+# 1) Set wallpaper (hyprpaper must be running)
+hyprctl hyprpaper preload "$IMG" >/dev/null 2>&1 || true
+hyprctl hyprpaper wallpaper ",$IMG"
+
+# 2) Generate palette and templates (very fast; runs once per change)
+if command -v wallust >/dev/null; then
+  wallust run "$IMG" --backend fast --theme dark --palette dark16
+  # Optional: export CSS vars for Waybar
+  mkdir -p ~/.config/waybar/colors
+  wallust template -i "$IMG" \
+    -t <(cat <<'CSS'
+:root{
+  --fg: {color7.hex};
+  --bg: rgba(25,35,32,0.60);
+  --accent: {color12.hex};
+  --panel: rgba(25,35,32,0.60);
+}
+CSS
+) > ~/.config/waybar/colors/wallust.css
+fi
+
+# 3) Reload UI bits
+pkill -SIGUSR2 waybar || true   # Waybar soft reload
+swaync-client -rs || true       # reload SwayNC style
