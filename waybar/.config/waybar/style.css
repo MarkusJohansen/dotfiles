@@ -1,58 +1,118 @@
+/* 
+ * Comprehensive Waybar CSS Example
+ * This stylesheet demonstrates a wide range of styling opportunities for Waybar.
+ * It covers global, window, module, state, and animation customizations.
+ */
+
+/* === Global Styles === */
 * {
     border: none;
     border-radius: 0;
-    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", "Noto Sans", "sans-serif";
     font-size: 13px;
     min-height: 0;
+    box-sizing: border-box;
+    letter-spacing: 0.02em;
+    transition: all 0.2s cubic-bezier(.4,0,.2,1);
+    outline: none;
 }
 
+/* === Waybar Window === */
 window#waybar {
-    background-color: rgba(30, 30, 46, 0.8);
+    background: linear-gradient(90deg, rgba(30,30,46,0.95) 0%, rgba(40,40,60,0.85) 100%);
     border-bottom: 3px solid rgba(100, 114, 125, 0.5);
     color: #cdd6f4;
-    transition-property: background-color;
-    transition-duration: .5s;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.25);
+    transition: background-color 0.5s, color 0.3s;
+    padding: 2px 0;
+    opacity: 1;
 }
 
 window#waybar.hidden {
     opacity: 0.2;
+    filter: blur(1px) grayscale(0.5);
 }
 
+/* === Buttons === */
 button {
     box-shadow: inset 0 -3px transparent;
     border: none;
-    border-radius: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: inherit;
+    padding: 2px 8px;
+    margin: 0 2px;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    font-weight: 500;
 }
 
-button:hover {
-    background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
+button:hover, button:focus {
+    background: rgba(255,255,255,0.08);
+    color: #89b4fa;
+    box-shadow: 0 2px 8px 0 rgba(80,80,120,0.15), inset 0 -3px #89b4fa;
+    cursor: pointer;
+}
+
+button:active {
+    background: rgba(137,180,250,0.2);
+    color: #f38ba8;
+    box-shadow: inset 0 -3px #f38ba8;
+}
+
+/* === Workspaces === */
+#workspaces {
+    margin: 0 8px;
+    padding: 0 2px;
+    background: rgba(60,60,80,0.2);
+    border-radius: 8px;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.08);
 }
 
 #workspaces button {
-    padding: 0 5px;
+    padding: 0 10px;
     background-color: transparent;
     color: #cdd6f4;
+    border-radius: 6px;
+    margin: 0 2px;
+    font-size: 14px;
+    transition: background 0.2s, color 0.2s;
 }
 
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(137,180,250,0.15);
+    color: #89b4fa;
 }
 
 #workspaces button.focused {
-    background-color: #64727d;
-    box-shadow: inset 0 -3px #89b4fa;
+    background: linear-gradient(90deg, #64727d 60%, #89b4fa 100%);
+    color: #fff;
+    box-shadow: 0 2px 8px 0 rgba(137,180,250,0.15), inset 0 -3px #89b4fa;
+    font-weight: bold;
 }
 
 #workspaces button.urgent {
     background-color: #f38ba8;
+    color: #fff;
+    animation: urgent-pulse 1s infinite alternate;
 }
 
+@keyframes urgent-pulse {
+    from { box-shadow: 0 0 0 0 #f38ba8; }
+    to   { box-shadow: 0 0 8px 4px #f38ba8; }
+}
+
+/* === Mode Indicator === */
 #mode {
-    background-color: #64727d;
+    background: repeating-linear-gradient(135deg, #64727d, #64727d 10px, #89b4fa 20px, #64727d 30px);
     border-bottom: 3px solid #ffffff;
+    color: #fff;
+    padding: 0 16px;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
 }
 
+/* === Module Padding and Color === */
 #clock,
 #battery,
 #cpu,
@@ -66,14 +126,25 @@ button:hover {
 #tray,
 #mode,
 #idle_inhibitor,
-#mpd {
-    padding: 0 10px;
+#mpd,
+#language,
+#keyboard-state,
+#scratchpad {
+    padding: 0 12px;
     color: #cdd6f4;
+    border-radius: 6px;
+    margin: 0 2px;
+    min-width: 24px;
+    min-height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/* === Window Title and Workspaces Container === */
 #window,
 #workspaces {
-    margin: 0 4px;
+    margin: 0 8px;
 }
 
 .modules-left > widget:first-child > #workspaces {
@@ -84,18 +155,24 @@ button:hover {
     margin-right: 0;
 }
 
+/* === Individual Modules === */
 #clock {
-    background-color: #64727d;
+    background: linear-gradient(90deg, #64727d 60%, #89b4fa 100%);
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 0.08em;
 }
 
 #battery {
-    background-color: #ffffff;
+    background: linear-gradient(90deg, #ffffff 60%, #cdd6f4 100%);
     color: #000000;
+    font-weight: 500;
 }
 
 #battery.charging, #battery.plugged {
     color: #ffffff;
-    background-color: #26a65b;
+    background: linear-gradient(90deg, #26a65b 60%, #43e97b 100%);
+    box-shadow: 0 0 8px 0 #26a65b;
 }
 
 @keyframes blink {
@@ -106,142 +183,271 @@ button:hover {
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
+    background: linear-gradient(90deg, #f53c3c 60%, #f38ba8 100%);
     color: #ffffff;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+    font-weight: bold;
 }
 
 label:focus {
     background-color: #000000;
+    color: #fff;
+    outline: 2px solid #89b4fa;
 }
 
+/* === System Resource Modules === */
 #cpu {
-    background-color: #2ecc71;
+    background: linear-gradient(90deg, #2ecc71 60%, #27ae60 100%);
     color: #000000;
+    font-weight: 500;
 }
 
 #memory {
-    background-color: #9b59b6;
+    background: linear-gradient(90deg, #9b59b6 60%, #8e44ad 100%);
+    color: #fff;
 }
 
 #disk {
-    background-color: #964b00;
+    background: linear-gradient(90deg, #964b00 60%, #b87333 100%);
+    color: #fff;
 }
 
 #backlight {
-    background-color: #90b1b0;
+    background: linear-gradient(90deg, #90b1b0 60%, #b2dfdb 100%);
+    color: #222;
 }
 
+/* === Network === */
 #network {
-    background-color: #2980b9;
+    background: linear-gradient(90deg, #2980b9 60%, #6dd5fa 100%);
+    color: #fff;
 }
 
 #network.disconnected {
-    background-color: #f53c3c;
+    background: linear-gradient(90deg, #f53c3c 60%, #f38ba8 100%);
+    color: #fff;
+    font-style: italic;
+    text-decoration: line-through;
 }
 
+/* === Audio === */
 #pulseaudio {
-    background-color: #f1c40f;
+    background: linear-gradient(90deg, #f1c40f 60%, #f9e79f 100%);
     color: #000000;
+    font-weight: 500;
 }
 
 #pulseaudio.muted {
-    background-color: #90b1b0;
+    background: linear-gradient(90deg, #90b1b0 60%, #b2bec3 100%);
+    color: #888;
+    text-decoration: line-through;
 }
 
+/* === Custom Media === */
 #custom-media {
-    background-color: #66cc99;
+    background: linear-gradient(90deg, #66cc99 60%, #43e97b 100%);
     color: #2a5c45;
-    min-width: 100px;
+    min-width: 120px;
+    font-style: italic;
 }
 
 #custom-media.custom-spotify {
-    background-color: #66cc99;
+    background: linear-gradient(90deg, #1db954 60%, #1ed760 100%);
+    color: #fff;
 }
 
 #custom-media.custom-vlc {
-    background-color: #ffa000;
+    background: linear-gradient(90deg, #ffa000 60%, #ffd54f 100%);
+    color: #fff;
 }
 
+/* === Temperature === */
 #temperature {
-    background-color: #f0932b;
+    background: linear-gradient(90deg, #f0932b 60%, #fdc830 100%);
+    color: #fff;
 }
 
 #temperature.critical {
-    background-color: #eb4d4b;
+    background: linear-gradient(90deg, #eb4d4b 60%, #f53c3c 100%);
+    color: #fff;
+    font-weight: bold;
+    animation: blink 1s infinite alternate;
 }
 
+/* === Tray === */
 #tray {
-    background-color: #2980b9;
+    background: linear-gradient(90deg, #87b929 60%, #6dd5fa 100%);
+    color: #fff;
+    border-radius: 8px;
+    padding: 0 8px;
 }
 
 #tray > .passive {
     -gtk-icon-effect: dim;
+    opacity: 0.6;
 }
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
+    background: #eb4d4b;
+    color: #fff;
+    border-radius: 50%;
+    animation: urgent-pulse 1s infinite alternate;
 }
 
+/* === Idle Inhibitor === */
 #idle_inhibitor {
-    background-color: #2d3748;
+    background: linear-gradient(90deg, #2d3748 60%, #4a5568 100%);
+    color: #fff;
 }
 
 #idle_inhibitor.activated {
-    background-color: #ecf0f1;
+    background: linear-gradient(90deg, #ecf0f1 60%, #b2bec3 100%);
     color: #2d3748;
+    font-weight: bold;
 }
 
+/* === MPD (Music Player Daemon) === */
 #mpd {
-    background-color: #66cc99;
+    background: linear-gradient(90deg, #66cc99 60%, #43e97b 100%);
     color: #2a5c45;
+    font-style: italic;
 }
 
 #mpd.disconnected {
-    background-color: #f53c3c;
+    background: linear-gradient(90deg, #f53c3c 60%, #f38ba8 100%);
+    color: #fff;
+    text-decoration: line-through;
 }
 
 #mpd.stopped {
-    background-color: #90b1b0;
+    background: linear-gradient(90deg, #90b1b0 60%, #b2bec3 100%);
+    color: #888;
 }
 
 #mpd.paused {
-    background-color: #51a2da;
+    background: linear-gradient(90deg, #51a2da 60%, #89b4fa 100%);
+    color: #fff;
 }
 
+/* === Language Indicator === */
 #language {
-    background: #00b093;
+    background: linear-gradient(90deg, #00b093 60%, #43e97b 100%);
     color: #740864;
-    padding: 0 5px;
-    margin: 0 5px;
-    min-width: 16px;
+    padding: 0 8px;
+    margin: 0 6px;
+    min-width: 20px;
+    font-weight: bold;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
 }
 
+/* === Keyboard State === */
 #keyboard-state {
-    background: #97e1ad;
+    background: linear-gradient(90deg, #97e1ad 60%, #43e97b 100%);
     color: #000000;
-    padding: 0 0px;
-    margin: 0 5px;
-    min-width: 16px;
+    padding: 0 4px;
+    margin: 0 6px;
+    min-width: 20px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
 }
 
 #keyboard-state > label {
-    padding: 0 5px;
+    padding: 0 6px;
+    border-radius: 4px;
+    margin: 0 2px;
 }
 
 #keyboard-state > label.locked {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.15);
+    color: #fff;
+    font-weight: bold;
 }
 
+/* === Scratchpad === */
 #scratchpad {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.15);
+    color: #fff;
+    border-radius: 6px;
+    padding: 0 8px;
+    font-style: italic;
 }
 
 #scratchpad.empty {
-	background-color: transparent;
+    background-color: transparent;
+    color: #888;
+    font-style: normal;
+    opacity: 0.5;
 }
+
+/* === Custom Animations === */
+@keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes fade-out {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+/* === Example: Custom Tooltip Styling === */
+tooltip {
+    background: #22223b;
+    color: #f2e9e4;
+    border-radius: 8px;
+    border: 1px solid #89b4fa;
+    padding: 8px 12px;
+    font-size: 13px;
+    box-shadow: 0 2px 8px 0 rgba(137,180,250,0.15);
+    opacity: 0.95;
+}
+
+/* === Example: Custom Progress Bar Styling === */
+progress, progressbar {
+    background: #22223b;
+    border-radius: 6px;
+    height: 8px;
+    width: 100px;
+    box-shadow: 0 1px 4px 0 rgba(137,180,250,0.08);
+}
+
+progressbar > trough {
+    background: #44475a;
+    border-radius: 6px;
+}
+
+progressbar > progress {
+    background: linear-gradient(90deg, #89b4fa 60%, #f38ba8 100%);
+    border-radius: 6px;
+}
+
+/* === Example: Custom Icon Styling === */
+.icon {
+    margin-right: 6px;
+    font-size: 16px;
+    vertical-align: middle;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.15));
+}
+
+/* === Responsive Design Example === */
+@media (max-width: 900px) {
+    #clock, #battery, #cpu, #memory, #disk, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor, #mpd, #language, #keyboard-state, #scratchpad {
+        padding: 0 6px;
+        font-size: 12px;
+        min-width: 16px;
+    }
+    #workspaces button {
+        padding: 0 6px;
+        font-size: 12px;
+    }
+}
+
+/* === End of Comprehensive Example === */
