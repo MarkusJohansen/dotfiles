@@ -1,16 +1,23 @@
+
+/*Color theme (Dune)*/
+@define-color bg rgba(228, 85, 52, 0.5);
+@define-color bg-accent rgba(228, 85, 52, 1);
+@define-color fg rgba(255, 170, 116, 1);
+
 * {
-    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-family: Roboto, Helvetica, blackArial, sans-serif;
     font-size: 13px;
 }
 
 window#waybar {
     background: transparent;
-    color: white;
 }
 
+/* Tooltip */
+
 tooltip {
-  background: rgba(43, 48, 59, 0.5);
-  border: 1px solid rgba(40, 132, 202, 0.5);
+  background: @bg;
+  border: 1px solid rgba(80, 123, 156, 0.5);
 }
 
 tooltip label {
@@ -25,7 +32,7 @@ tooltip label {
 /* Style window module */
 
 #window {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: @bg;
     font-size: 1px;
     padding: 1px 3px;
 }
@@ -33,101 +40,94 @@ tooltip label {
 /* Style workspace module */
 
 #workspaces {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: @bg;
     padding: 3px 7px;
     border-radius: 14px;
-    border: 1.5px solid rgba(255, 255, 255, 1);
+    border: 1.5px solid @bg;
 }
 
 #workspaces button {
-    background-color: rgba(255, 255, 255, 1);
+    background-color: @bg;
     color: transparent;
     margin: 0 2px;
 }
 
-#workspaces button.focused {
-    background: #64727D;
-    border-bottom: 2px solid white;
-}
-
 #workspaces button.hover {
     background: #64727D;
-    border-bottom: 2px solid white;
 }
 
 #workspaces button.active {
-    background: #64727D;
-    border-bottom: 2px solid white;
+    background: @fg;
 }
 
 /* Style clock module */
 
 #clock {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: @bg;
     font-size: 15px;
     font-weight: bold;
     border-radius: 10px;
     padding: 0px 10px;
-    color: rgba(255, 255, 255, 1);
-    border: 1.5px solid rgba(255, 255, 255, 1);
+    color: @fg;
+    border: 1.5px solid @bg-accent;
 }
 
 /* Style Hyprland/window module */
 
 #window {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: @bg;
     font-size: 15px;
     font-weight: bold;
     border-radius: 10px;
     padding: 0px 10px;
-    color: rgba(255, 255, 255, 1);
-    border: 1.5px solid rgba(255, 255, 255, 1);
+    color: @fg;
+    border: 1.5px solid @bg-accent;
 }
 
 /* Style battery module */
 
 #battery {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: @bg;
     font-size: 15px;
     font-weight: bold;
     border-radius: 10px;
     padding: 0px 10px;
-    color: rgba(255, 255, 255, 1);
-    border: 1.5px solid rgba(255, 255, 255, 1);
+    color: @fg;
+    border: 1.5px solid @bg-accent;
 }
 
 /* Style network module */
 
 #network {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: @bg;
     font-size: 15px;
     font-weight: bold;
     border-radius: 10px;
     padding: 0px 10px;
-    color: rgba(255, 255, 255, 1);
-    border: 1.5px solid rgba(255, 255, 255, 1);
+    color: @fg;
+    border: 1.5px solid @bg-accent;
 }
 
 /* Style bluetooth module */
 
 #bluetooth {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: @bg;
     font-size: 15px;
     font-weight: bold;
     border-radius: 10px;
     padding: 0px 10px;
-    color: rgba(255, 255, 255, 1);
-    border: 1.5px solid rgba(255, 255, 255, 1);
+    color: @fg;
+    border: 1.5px solid @bg-accent;
 }
 
 /* Style pulseaudio module */
 
 #pulseaudio {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: @bg;
     font-size: 15px;
     font-weight: bold;
     border-radius: 10px;
     padding: 0px 10px;
-    color: rgba(255, 255, 255, 1);
-    border: 1.5px solid rgba(255, 255, 255, 1);
+    color: @fg;
+    border: 1.5px solid @bg-accent;
 }
