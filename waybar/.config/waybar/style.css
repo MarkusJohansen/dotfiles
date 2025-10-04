@@ -18,6 +18,13 @@ tooltip label {
   color: white;
 }
 
+/* Modules */
+.modules-left, .modules-right, .modules-center {
+    margin: 10px;
+}
+
+
+
 /* Style window module */
 
 #window {
@@ -58,7 +65,7 @@ tooltip label {
     border-bottom: 3px solid white;
 }
 
-
+/**/
 
 #mode, #clock, #battery {
     padding: 0 10px;
@@ -76,7 +83,7 @@ tooltip label {
 #battery {
     background-color: #ffffff;
     color: black;
-    padding: 5 15px;
+    padding: 5px 15px;
     border-radius: 10px;
     border: 2px solid rgba(40, 132, 202, 0.5);
 }
