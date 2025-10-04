@@ -1,9 +1,0 @@
-profile home {
-    output "eDP-1" scale 1 position 0,0
-    output "HDMI-A-1" mode 2560x1440@144Hz position 1920,0
-}
-
-profile mobile {
-    output "eDP-1" enable
-    output "HDMI-A-1" disable
-}
