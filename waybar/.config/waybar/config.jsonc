@@ -18,6 +18,11 @@
 
     "hyprland/workspaces": {
         "format": "{icon}",
+        "format-icons": {
+            "active": "", // glyph when a workspace is active
+            "urgent": "",
+            "default": ""
+          },
         "on-click": "hyprctl dispatch workspace e+1",
         "on-scroll-up": "hyprctl dispatch workspace e+1",
         "on-scroll-down": "hyprctl dispatch workspace e-1",

@@ -38,7 +38,9 @@ tooltip label {
     border: 1.5px solid @bg;
 }
 
+
 #workspaces button {
+    transition: transform 140ms ease, background 140ms ease, border-color 140ms ease;
     background-color: @bg;
     color: transparent;
     margin: 0 3px;
@@ -51,6 +53,12 @@ tooltip label {
 
 #workspaces button.active {
     background: @fg;
+    /* the size illusion */
+    outline: 2px solid @bg-accent;  /* halo color; can be lighter for neon look */
+    outline-offset: 2px;            /* pushes halo outwards */
+    box-shadow: 0 0 10px rgba(228,85,52,0.45); /* soft glow */
+    border-color: @bg-accent;
+    font-weight: 700;               /* bold helps the icon feel bigger */
 }
 
 /* Style clock module */
