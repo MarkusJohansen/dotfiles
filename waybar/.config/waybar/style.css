@@ -85,7 +85,6 @@ tooltip label {
     color: @fg;
     border: 1.5px solid @bg-accent;
 }
-
 /* Style battery module */
 
 #battery {
@@ -133,3 +132,17 @@ tooltip label {
     color: @fg;
     border: 1.5px solid @bg-accent;
 }
+
+/* Hide the window module when the workspace has no windows */
+window#waybar.empty #window {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+    min-height: 0;
+    box-shadow: none;
+    font-size: 0;
+    color: transparent;
+  }
+  

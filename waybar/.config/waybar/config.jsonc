@@ -60,14 +60,16 @@
         "format-ethernet": " {ifname}",
         "format-disconnected": " Disconnected",
         "tooltip-format": "{ifname} via {ipaddr}/{cidr}\nSSID: {essid}",
-        "interval": 10
+        "interval": 10,
+        "on-click": "nm-connection-editor"
     },
 
     "bluetooth": {
         "format": "",
         "format-disabled": "",
         "tooltip-format": "{device_alias} {status}",
-        "interval": 20
+        "interval": 20,
+        "on-click": "blueman-manager"
     },
 
     "pulseaudio": {
