@@ -1,5 +1,87 @@
+* {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+}
+
 window#waybar {
-    background-color: #5656ec;
-    border-bottom: 5px solid #ce1f1f;
-    color: #cdd6f4;
+    background: transparent;
+    color: white;
+    padding: 10px;
+}
+
+tooltip {
+  background: rgba(43, 48, 59, 0.5);
+  border: 1px solid rgba(40, 132, 202, 0.5);
+}
+
+tooltip label {
+  color: white;
+}
+
+/* Style window module */
+
+#window {
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 1px;
+    padding: 2px 5px;
+    margin: 0 3px;
+}
+
+/* Style workspace module */
+
+#workspaces {
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 1);
+}
+
+#workspaces button {
+    background-color: rgba(255, 255, 255, 1);
+    color: transparent;
+    margin: 0 3px;
+}
+
+#workspaces button.focused {
+    background: #64727D;
+    border-bottom: 3px solid white;
+}
+
+#workspaces button.hover {
+    background: #64727D;
+    border-bottom: 3px solid white;
+}
+
+#workspaces button.active {
+    background: #64727D;
+    border-bottom: 3px solid white;
+}
+
+
+
+#mode, #clock, #battery {
+    padding: 0 10px;
+}
+
+#mode {
+    background: #64727D;
+    border-bottom: 3px solid white;
+}
+
+#clock {
+    background-color: #64727D;
+}
+
+#battery {
+    background-color: #ffffff;
+    color: black;
+    padding: 5 15px;
+    border-radius: 10px;
+    border: 2px solid rgba(40, 132, 202, 0.5);
+}
+
+#battery.charging {
+    color: white;
+    background-color: #26A65B;
 }

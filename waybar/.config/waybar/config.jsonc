@@ -1,9 +1,12 @@
 
 {
     "layer": "top", 
-    "modules-left": ["hyprland/workspaces", "hyprland/mode"],
-    "modules-center": ["hyprland/window"],
-    "modules-right": ["battery", "clock", "network"],
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["battery", "tray", "network"],
+    "hyprland/workspaces": {
+        "format": "{icon}"
+    },
     "hyprland/window": {
         "max-length": 50
     },
