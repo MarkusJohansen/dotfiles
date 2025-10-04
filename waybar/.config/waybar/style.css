@@ -5,7 +5,7 @@
 @define-color fg rgba(255, 170, 116, 1);
 
 * {
-    font-family: Roboto, Helvetica, blackArial, sans-serif;
+    font-family: Dune Rise, Roboto, Helvetica, blackArial, sans-serif;
     font-size: 13px;
 }
 
@@ -14,29 +14,21 @@ window#waybar {
 }
 
 /* Tooltip */
-
 tooltip {
   background: @bg;
-  border: 1px solid rgba(80, 123, 156, 0.5);
+  border: 1px solid @bg-accent;
 }
 
 tooltip label {
-  color: white;
+  color: @fg;
 }
 
-/* Modules */
+/* keep a bit of margin around each group (optional) */
 .modules-left, .modules-right, .modules-center {
     margin: 6px;
 }
-
-/* Style window module */
-
-#window {
-    background-color: @bg;
-    font-size: 1px;
-    padding: 1px 3px;
-}
-
+  
+  
 /* Style workspace module */
 
 #workspaces {
@@ -49,11 +41,12 @@ tooltip label {
 #workspaces button {
     background-color: @bg;
     color: transparent;
-    margin: 0 2px;
+    margin: 0 3px;
+
 }
 
-#workspaces button.hover {
-    background: #64727D;
+#workspaces button.focused {
+    background: @bg-accent;
 }
 
 #workspaces button.active {
@@ -70,6 +63,7 @@ tooltip label {
     padding: 0px 10px;
     color: @fg;
     border: 1.5px solid @bg-accent;
+    letter-spacing: 0.2em;
 }
 
 /* Style Hyprland/window module */

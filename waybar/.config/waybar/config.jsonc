@@ -1,18 +1,19 @@
 
 {
     "layer": "top",
+    "spacing": 8,
     "modules-left": [
         "hyprland/workspaces",
-        "hyprland/window",
-    ],
-    "modules-center": [
         "clock"
     ],
+    "modules-center": [
+        "hyprland/window"
+    ],
     "modules-right": [
-        "battery",
         "network",
         "bluetooth",
-        "pulseaudio"
+        "pulseaudio",
+        "battery"
     ],
 
     "hyprland/workspaces": {
@@ -31,7 +32,8 @@
     "hyprland/window": {
         "format": "{title}",
         "max-length": 50,
-        "separate-outputs": true
+        "separate-outputs": true,
+        "empty-format": ""
     },
 
     "battery": {
@@ -49,17 +51,17 @@
     },
 
     "network": {
-        "format-wifi": " {essid} ({signalStrength}%)",
+        "format-wifi": "  {signalStrength}%",
         "format-ethernet": " {ifname}",
         "format-disconnected": " Disconnected",
-        "tooltip-format": "{ifname} via {ipaddr}/{cidr}",
+        "tooltip-format": "{ifname} via {ipaddr}/{cidr}\nSSID: {essid}",
         "interval": 10
     },
 
     "bluetooth": {
-        "format": " {status}",
-        "format-connected": " {device_alias}",
+        "format": "",
         "format-disabled": "",
+        "tooltip-format": "{device_alias} {status}",
         "interval": 20
     },
 
