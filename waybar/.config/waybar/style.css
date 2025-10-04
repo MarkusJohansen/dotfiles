@@ -6,7 +6,6 @@
 window#waybar {
     background: transparent;
     color: white;
-    padding: 10px;
 }
 
 tooltip {
@@ -31,13 +30,11 @@ tooltip label {
     background-color: rgba(255, 255, 255, 0.5);
     font-size: 1px;
     padding: 2px 5px;
-    margin: 0 3px;
 }
 
 /* Style workspace module */
 
 #workspaces {
-    margin: 10px;
     background-color: rgba(255, 255, 255, 0.5);
     padding: 5px 10px;
     border-radius: 20px;
@@ -65,19 +62,16 @@ tooltip label {
     border-bottom: 3px solid white;
 }
 
-/**/
-
-#mode, #clock, #battery {
-    padding: 0 10px;
-}
-
-#mode {
-    background: #64727D;
-    border-bottom: 3px solid white;
-}
+/* Style clock module */
 
 #clock {
-    background-color: #64727D;
+    background-color: rgba(255, 255, 255, 0.2);
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 15px;
+    padding: 0px 15px;
+    color: rgba(255, 255, 255, 1);
+    border: 2px solid rgba(255, 255, 255, 1);
 }
 
 #battery {
