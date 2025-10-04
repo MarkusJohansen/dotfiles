@@ -6,11 +6,12 @@
 
 * {
     font-family: Dune Rise, Roboto, Helvetica, blackArial, sans-serif;
-    font-size: 13px;
+    font-size: 11px;
 }
 
 window#waybar {
     background: transparent;
+    padding: 8px;
 }
 
 /* Tooltip */
@@ -25,7 +26,7 @@ tooltip label {
 
 /* keep a bit of margin around each group (optional) */
 .modules-left, .modules-right, .modules-center {
-    margin: 6px;
+    margin: 8px;
 }
   
   
@@ -33,9 +34,9 @@ tooltip label {
 
 #workspaces {
     background-color: @bg;
-    padding: 3px 7px;
-    border-radius: 14px;
-    border: 1.5px solid @bg;
+    padding: 2px 5px;
+    border-radius: 10px;
+    border: 1px solid @bg;
 }
 
 
@@ -43,7 +44,7 @@ tooltip label {
     transition: transform 140ms ease, background 140ms ease, border-color 140ms ease;
     background-color: @bg;
     color: transparent;
-    margin: 0 3px;
+    margin: 0 2px;
 
 }
 
@@ -65,72 +66,72 @@ tooltip label {
 
 #clock {
     background-color: @bg;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: bold;
-    border-radius: 10px;
-    padding: 0px 10px;
+    border-radius: 8px;
+    padding: 0px 8px;
     color: @fg;
-    border: 1.5px solid @bg-accent;
-    letter-spacing: 0.2em;
+    border: 1px solid @bg-accent;
+    letter-spacing: 0.15em;
 }
 
 /* Style Hyprland/window module */
 
 #window {
     background-color: @bg;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: bold;
-    border-radius: 10px;
-    padding: 0px 10px;
+    border-radius: 8px;
+    padding: 0px 8px;
     color: @fg;
-    border: 1.5px solid @bg-accent;
+    border: 1px solid @bg-accent;
 }
 /* Style battery module */
 
 #battery {
     background-color: @bg;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: bold;
-    border-radius: 10px;
-    padding: 0px 10px;
+    border-radius: 8px;
+    padding: 0px 8px;
     color: @fg;
-    border: 1.5px solid @bg-accent;
+    border: 1px solid @bg-accent;
 }
 
 /* Style network module */
 
 #network {
     background-color: @bg;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: bold;
-    border-radius: 10px;
-    padding: 0px 10px;
+    border-radius: 8px;
+    padding: 0px 8px;
     color: @fg;
-    border: 1.5px solid @bg-accent;
+    border: 1px solid @bg-accent;
 }
 
 /* Style bluetooth module */
 
 #bluetooth {
     background-color: @bg;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: bold;
-    border-radius: 10px;
-    padding: 0px 10px;
+    border-radius: 8px;
+    padding: 0px 8px;
     color: @fg;
-    border: 1.5px solid @bg-accent;
+    border: 1px solid @bg-accent;
 }
 
 /* Style pulseaudio module */
 
 #pulseaudio {
     background-color: @bg;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: bold;
-    border-radius: 10px;
-    padding: 0px 10px;
+    border-radius: 8px;
+    padding: 0px 8px;
     color: @fg;
-    border: 1.5px solid @bg-accent;
+    border: 1px solid @bg-accent;
 }
 
 /* Hide the window module when the workspace has no windows */
