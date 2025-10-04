@@ -1,8 +1,4 @@
-
-/*Color theme (Dune)*/
-@define-color bg rgba(228, 85, 52, 0.5);
-@define-color bg-accent rgba(228, 85, 52, 1);
-@define-color fg rgba(255, 170, 116, 1);
+@import "color.css";
 
 * {
     font-family: Dune Rise, Roboto, Helvetica, blackArial, sans-serif;
