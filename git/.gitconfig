@@ -14,3 +14,7 @@
 	clean = git-lfs clean -- %f
 [http]
 	postBuffer = 100000000
+[init]
+	defaultBranch = main
+[fetch]
+	prune = true

@@ -1,0 +1,90 @@
+/* ===========================
+   Wofi App Launcher Style
+   Author: ChatGPT
+   Theme: Modern Dark
+   =========================== */
+
+/* === General window styling === */
+window {
+    background-color: rgba(255, 170, 116, 0.75); 
+    border-radius: 5px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
+    color: rgb(0,0,0);
+}
+
+/* === Input box (search bar) === */
+#input {
+    margin: 10px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: rgb(0,0,0);
+    color: rgb(255,170,116);
+    caret-color: #88C0D0;
+    outline: none;
+    font-weight: bold;
+}
+
+#input:focused {
+  focus: none;
+}
+
+/* === Scroll area === */
+#inner-box {
+    margin: 5px;
+    border-radius: 8px;
+}
+
+/* === Each app entry === */
+#entry {
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin: 2px 6px;
+    background-color: transparent;
+    color: rgb(0,0,0)
+}
+
+#entry:selected {
+    background-color: rgb(0,0,0);
+}
+
+/* === Text inside entries === */
+#text {
+    margin-left: 6px;
+}
+
+/* === Placeholder text === */
+#entry:selected #text {
+    font-weight: bold;
+    color: rgb(255,170,116)
+}
+
+/* === Scrollbar === */
+#scroll {
+    border: none;
+    margin: 4px;
+    color: rgb(0,0,0);
+}
+
+/* === Bottom bar (if used) === */
+#prompt {
+    color: #88C0D0;
+    margin: 6px;
+}
+
+/* === Hidden elements fix === */
+#outer-box {
+    margin: 10px;
+}
+
+/* === Animations (optional, GTK 3.24+) === */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+window {
+    animation: fadeIn 0.12s ease-in-out;
+}
+
