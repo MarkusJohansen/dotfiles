@@ -4,14 +4,14 @@
     "spacing": 8,
     "modules-left": [
         "hyprland/workspaces",
-        "clock"
-    ],
-    "modules-center": [
         "hyprland/window"
     ],
+    "modules-center": [
+        "clock"
+    ],
     "modules-right": [
-        "network",
         "bluetooth",
+        "network",
         "pulseaudio",
         "battery"
     ],

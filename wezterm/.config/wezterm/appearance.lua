@@ -5,8 +5,8 @@ local M = {}
 
 -- Appearance
 --M.color_scheme = "BirdsOfParadise"
---M.color_scheme = 'Dawn (terminal.sexy)'
-M.color_scheme = 'Earthsong'
+M.color_scheme = 'Dawn (terminal.sexy)'
+--M.color_scheme = 'Earthsong'
 M.font_size = 13
 M.window_background_opacity = 0.85
 M.window_padding = {
