@@ -38,7 +38,7 @@ hyprctl reload
 
 # Restart Waybar
 kill_process "waybar"
-start_process "waybar" "waybar --config ~/.dotfiles/waybar/.config/waybar/config.jsonc --style ~/.dotfiles/waybar/.config/waybar/style.css"
+start_process "waybar" "waybar --config ~/dotfiles/waybar/.config/waybar/config.jsonc --style ~/dotfiles/waybar/.config/waybar/style.css"
 
 # Restart Hyprpaper
 kill_process "hyprpaper"

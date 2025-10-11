@@ -4,14 +4,15 @@
     "spacing": 8,
     "modules-left": [
         "hyprland/workspaces",
-        "clock"
-    ],
-    "modules-center": [
         "hyprland/window"
     ],
+    "modules-center": [
+        "clock"
+    ],
     "modules-right": [
-        "network",
+        "tray",
         "bluetooth",
+        "network",
         "pulseaudio",
         "battery"
     ],
@@ -89,5 +90,10 @@
         "format": "{:%Y-%m-%d %H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
+    },
+
+    "tray": {
+        "spacing": 10,
+        "icon-size": 16
     }
 }

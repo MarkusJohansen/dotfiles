@@ -1,16 +1,16 @@
-/* ===========================
-   Wofi App Launcher Style
-   Author: ChatGPT
-   Theme: Modern Dark
-   =========================== */
+@define-color bg rgba(24, 19, 26, 0.85);
+@define-color bg-accent rgba(40, 32, 36, 0.6);
+@define-color inactive rgba(51, 22, 26, 0.5);
+@define-color active rgba(255, 140, 66, 1);
+
+
 
 /* === General window styling === */
 window {
-    background-color: rgba(255, 170, 116, 0.75); 
+    background-color: @bg; 
     border-radius: 5px;
     font-family: "JetBrains Mono", monospace;
     font-size: 14px;
-    color: rgb(0,0,0);
 }
 
 /* === Input box (search bar) === */
@@ -19,15 +19,18 @@ window {
     padding: 8px 12px;
     border: none;
     border-radius: 6px;
-    background-color: rgb(0,0,0);
-    color: rgb(255,170,116);
-    caret-color: #88C0D0;
+    background-color: @bg-accent;
+    color: @active;
+    caret-color: @active;
     outline: none;
     font-weight: bold;
 }
 
 #input:focused {
-  focus: none;
+    background-color: @bg-accent;
+    outline: none;
+    box-shadow: none;
+    border: none;
 }
 
 /* === Scroll area === */
@@ -42,11 +45,13 @@ window {
     border-radius: 6px;
     margin: 2px 6px;
     background-color: transparent;
-    color: rgb(0,0,0)
+    color: @active;
 }
 
 #entry:selected {
-    background-color: rgb(0,0,0);
+    background-color: @bg-accent;
+    border: none;
+    outline: none;
 }
 
 /* === Text inside entries === */
@@ -57,25 +62,56 @@ window {
 /* === Placeholder text === */
 #entry:selected #text {
     font-weight: bold;
-    color: rgb(255,170,116)
+    color: @active;
 }
 
 /* === Scrollbar === */
 #scroll {
     border: none;
     margin: 4px;
-    color: rgb(0,0,0);
+    color: @bg-accent;
 }
 
 /* === Bottom bar (if used) === */
 #prompt {
-    color: #88C0D0;
+    color: @active;
     margin: 6px;
 }
 
 /* === Hidden elements fix === */
 #outer-box {
     margin: 10px;
+}
+
+/* === Icons styling === */
+#search-icon,
+#back-icon,
+#dropdown-caret,
+#icon-button {
+    color: @active;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+/* === Dropdown elements === */
+#dropdown {
+    background-color: @bg-accent;
+    border: none;
+    outline: none;
+    color: @active;
+}
+
+#dropdown:selected {
+    background-color: @bg-accent;
+    border: none;
+    outline: none;
+}
+
+/* === All icon elements === */
+* {
+    border: none;
+    outline: none;
 }
 
 /* === Animations (optional, GTK 3.24+) === */
