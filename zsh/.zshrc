@@ -21,7 +21,7 @@ alias gp='git push'
 alias gl='git log --oneline --graph --decorate'
 alias g="git"
 alias gpp="git pull --rebase && git push"
-alias local-rpi="ssh root@10.0.0.53"
+alias rpi="ssh root@markusjohansen.no"
 
 # Load environment variables from .environment file at root (avoids pushing env)
 if [ -f ~/.environment ]; then
