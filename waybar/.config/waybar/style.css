@@ -111,6 +111,22 @@ tooltip label {
     color: @active;
 }
 
+/* Style tray module */
+
+#tray {
+    background-color: @bg;
+    border-radius: 8px;
+    padding: 0 8px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
 /* Hide the window module when the workspace has no windows */
 window#waybar.empty #window {
     background: transparent;
