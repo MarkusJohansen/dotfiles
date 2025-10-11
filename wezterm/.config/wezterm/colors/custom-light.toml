@@ -1,0 +1,106 @@
+# Custom Light Theme for WezTerm
+# A modern light theme inspired by GitHub's color palette
+
+[colors]
+# Basic colors
+foreground = "#24292f"
+background = "#ffffff"
+
+# Cursor colors
+cursor_bg = "#0969da"
+cursor_fg = "#ffffff"
+cursor_border = "#0969da"
+
+# Selection colors
+selection_fg = "#ffffff"
+selection_bg = "#0969da"
+
+# Scrollbar
+scrollbar_thumb = "#d0d7de"
+
+# Split lines
+split = "#d0d7de"
+
+# ANSI colors
+ansi = [
+  "#484f58",  # black
+  "#d1242f",  # red
+  "#1a7f37",  # green
+  "#9a6700",  # yellow
+  "#0969da",  # blue
+  "#8250df",  # magenta
+  "#1f883d",  # cyan
+  "#656d76",  # white
+]
+
+# Bright ANSI colors
+brights = [
+  "#6e7681",  # bright black
+  "#da3633",  # bright red
+  "#238636",  # bright green
+  "#bf8700",  # bright yellow
+  "#218bff",  # bright blue
+  "#a475f9",  # bright magenta
+  "#2ea043",  # bright cyan
+  "#24292f",  # bright white
+]
+
+# Tab bar colors
+[colors.tab_bar]
+background = "#ffffff"
+
+[colors.tab_bar.active_tab]
+bg_color = "#f6f8fa"
+fg_color = "#24292f"
+intensity = "Normal"
+underline = "None"
+italic = false
+strikethrough = false
+
+[colors.tab_bar.inactive_tab]
+bg_color = "#ffffff"
+fg_color = "#656d76"
+intensity = "Normal"
+underline = "None"
+italic = false
+strikethrough = false
+
+[colors.tab_bar.inactive_tab_hover]
+bg_color = "#f6f8fa"
+fg_color = "#24292f"
+italic = true
+
+[colors.tab_bar.new_tab]
+bg_color = "#ffffff"
+fg_color = "#656d76"
+
+[colors.tab_bar.new_tab_hover]
+bg_color = "#f6f8fa"
+fg_color = "#24292f"
+italic = true
+
+# Copy mode colors
+[colors.copy_mode_active_highlight_bg]
+Color = "#0969da"
+
+[colors.copy_mode_active_highlight_fg]
+Color = "#ffffff"
+
+[colors.copy_mode_inactive_highlight_bg]
+Color = "#f6f8fa"
+
+[colors.copy_mode_inactive_highlight_fg]
+Color = "#24292f"
+
+# Quick select colors
+[colors.quick_select_label_bg]
+Color = "#0969da"
+
+[colors.quick_select_label_fg]
+Color = "#ffffff"
+
+[colors.quick_select_match_bg]
+Color = "#f6f8fa"
+
+[colors.quick_select_match_fg]
+Color = "#24292f"
