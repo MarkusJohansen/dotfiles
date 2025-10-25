@@ -1,93 +1,90 @@
 
 {
     "layer": "top",
-    "spacing": 8,
     "modules-left": [
         "hyprland/workspaces",
         "hyprland/window"
     ],
-    "modules-center": [
-        "clock"
-    ],
     "modules-right": [
         "tray",
-        "bluetooth",
         "network",
+        "bluetooth",
+        "battery",
         "pulseaudio",
-        "battery"
+        "clock"
     ],
 
     "hyprland/workspaces": {
-        "format": "{icon}",
-        "format-icons": {
-            "active": "", // glyph when a workspace is active
-            "urgent": "",
-            "default": ""
-          },
-        "on-click": "hyprctl dispatch workspace e+1",
-        "on-scroll-up": "hyprctl dispatch workspace e+1",
-        "on-scroll-down": "hyprctl dispatch workspace e-1",
-        "all-outputs": true,
+        "format": "{id}",
         "persistent-workspaces": {
             "1": [],
             "2": [],
-            "3": []
+            "3": [],
+            "4": []
         }
     },
 
     "hyprland/window": {
         "format": "{title}",
         "max-length": 50,
-        "separate-outputs": true,
-        "empty-format": ""
+        "separate-outputs": true
     },
 
     "battery": {
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", ""],
-        "interval": 30,
+        "bat": "BAT1",
+        "interval": 60,
         "states": {
-            "good": 80,
             "warning": 30,
-            "critical": 10
-        }
+            "critical": 15
+        },
+        "format": "{icon}",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
 
     "network": {
-        "format-wifi": "  {signalStrength}%",
-        "format-ethernet": " {ifname}",
-        "format-disconnected": " Disconnected",
-        "tooltip-format": "{ifname} via {ipaddr}/{cidr}\nSSID: {essid}",
-        "interval": 10,
-        "on-click": "nm-connection-editor"
-    },
-
-    "bluetooth": {
-        "format": "",
-        "format-disabled": "",
-        "tooltip-format": "{device_alias} {status}",
-        "interval": 20,
-        "on-click": "blueman-manager"
+        "interface": "wlp1s0",
+        "format": "{ifname}",
+        "format-wifi": "󰖩",
+        "format-ethernet": "󰈀 {ipaddr}/{cidr}",
+        "format-disconnected": "󰖪",
+        "tooltip-format": "{essid} ({signalStrength}%)\n{ifname} via {gwaddr}",
+        "tooltip-format-ethernet": "{ifname}",
+        "tooltip-format-disconnected": "Disconnected",
+        "on-click": "wezterm start --always-new-process nmtui"
     },
 
     "pulseaudio": {
         "format": "{icon} {volume}%",
-        "format-muted": " Muted",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-muted": "󰖁",
         "format-icons": {
-            "headphones": "",
-            "handsfree": "",
-            "hdmi": "",
-            "default": ["", "", ""]
+            "headphone": "󰋋",
+            "hands-free": "󰋎",
+            "headset": "󰋎",
+            "phone": "󰏲",
+            "portable": "󰏲",
+            "car": "󰄋",
+            "default": ["󰕿", "󰖀", "󰕾"]
         },
         "scroll-step": 5,
         "on-click": "pavucontrol"
     },
 
+    "bluetooth": {
+        "format": "󰂯",
+        "format-disabled": "󰂲",
+        "format-connected": "󰂱 {num_connections}",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "on-click": "wezterm start --always-new-process bluetui"
+    },
+
     "clock": {
-        "format": "{:%Y-%m-%d %H:%M}",
+        "interval": 60,
+        "format": "{:%H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
     },

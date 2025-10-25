@@ -1,130 +1,106 @@
-@define-color bg rgba(24, 19, 26, 0.5);
-@define-color bg-accent rgba(40, 32, 36, 0.6);
-@define-color inactive rgba(51, 22, 26, 0.5);
-@define-color active rgba(255, 140, 66, 1);
+@define-color bg rgba(0, 0, 0, 0.6);
+@define-color font rgba(255,255,255,1);
+@define-color active rgba(106, 162, 252,1);
 
 * {
-    font-family: "JetBrains Mono","Fira Code","Cascadia Code","SF Mono","Monaco","Cascadia Mono","Roboto Mono","Consolas","Courier New", monospace;
-    font-size: 15px;
+    font-family: "Hack Nerd Font","JetBrainsMono Nerd Font", monospace;
+    font-size: 14px;
 }
 
+/* === Section styling === */
 window#waybar {
-    background: @bg;
+  margin: 20px;
+  padding: 10px;
+  background: transparent;
+  color: @font;
+  border-radius: 12px;
 }
 
-/* Tooltip */
+.modules-center, .modules-left, .modules-right {
+    margin-top: 6px;
+}
+
+.modules-left {
+  margin-left: 6px;
+  background-color: @bg;
+  border-radius: 12px;
+}
+
+.modules-right {
+  padding: 0 10px;
+  margin-right: 6px;
+  background-color: @bg;
+  border-radius: 12px;
+}
+
+#network, #bluetooth, #battery, #pulseaudio {
+  margin: 0 10px;
+}
+
+/* === Tooltip styling === */
 tooltip {
-  background: @bg;
-  border: 1px solid @bg-accent;
+  background-color: @bg;
+  border-radius: 12px;
+  padding: 10px;
 }
 
-tooltip label {
-  color: @active;
-}
 
-  
-/* Style workspace module */
+
+/* === Workspace styling === */
 
 #workspaces {
-    background-color: @bg;
-    border-radius: 20px;
-    padding: 6px 12px;
-    margin: 0 8px;
-    border: 1px solid transparent;
+  margin: 6px 0px;
+  padding: 4px 8px;
 }
 
 #workspaces button {
-    min-width: 6px;
-    min-height: 6px;
-    padding: 3px;
-    margin: 0 3px;
-    border-radius: 50%;
-    background-color: @bg-accent;
-    border: none;
-    color: transparent;
-    font-size: 0;
+    color: @font;
+    padding: 0 6px;
 }
 
-#workspaces button:hover {
-    background-color: rgba(255, 231, 83, 0.6);
-}
-
+/* Make the active workspace button visually smaller than the container */
 #workspaces button.active {
     background-color: @active;
-}
-
-#workspaces button.urgent {
-    background-color: @bg-accent;
+    border-radius: 6px;
+    /* shrink a bit more if needed */
+    /* Optional: add scale transform */
+    /* transform: scale(0.95); */
 }
 
 /* Style clock module */
-
 #clock {
-    font-size: 15px;
-    font-weight: bold;
-    color: @active;
-    letter-spacing: 0.15em;
-}
-
-/* Style Hyprland/window module */
-
-#window {
-    font-size: 12px;
-    font-weight: bold;
-    color: @active;
-}
-/* Style battery module */
-
-#battery {
-    font-size: 12px;
-    font-weight: bold;
-    color: @active;
-}
-
-/* Style network module */
-
-#network {
-    background-color: @bg;
-    font-size: 12px;
-    font-weight: bold;
+    color: @font;
+    padding: 8px;
+    margin-top: 4px;
+    margin-bottom: 4px;
     border-radius: 8px;
-    color: @active;
 }
+    
+/* Style Hyprland/window module */
+#window {
+    color: @font;
+    padding: 8px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border-radius: 8px;
+}
+
 
 /* Style bluetooth module */
-
 #bluetooth {
-    background-color: @bg;
     font-size: 12px;
     font-weight: bold;
     border-radius: 8px;
-    color: @active;
+    color: @font;
 }
 
 /* Style pulseaudio module */
 
 #pulseaudio {
-    background-color: @bg;
     font-size: 12px;
     font-weight: bold;
     border-radius: 8px;
-    color: @active;
-}
-
-/* Style tray module */
-
-#tray {
-    background-color: @bg;
-    border-radius: 8px;
-    padding: 0 8px;
-}
-
-#tray > .passive {
-    -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
+    color: @font;
 }
 
 /* Hide the window module when the workspace has no windows */
