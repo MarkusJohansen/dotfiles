@@ -16,6 +16,10 @@ window {
     font-size: 14px;
     box-shadow: 0 0 20px rgba(255, 180, 100, 0.4),
                 0 0 40px rgba(255, 140, 66, 0.2);
+    min-width: 600px;
+    max-width: 600px;
+    min-height: 400px;
+    max-height: 400px;
 }
 
 /* === Input box (search bar) === */
@@ -30,7 +34,10 @@ window {
     outline: none;
     font-weight: bold;
     box-shadow: 0 0 10px rgba(140, 159, 255, 0.3);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    /* Removed transition to prevent jitter when typing */
+    /* transition: border-color 0.2s ease, box-shadow 0.2s ease; */
+    min-width: 560px;
+    max-width: 560px;
 }
 
 #input:focused {
@@ -44,6 +51,8 @@ window {
 #inner-box {
     margin: 5px;
     border-radius: 8px;
+    min-width: 560px;
+    max-width: 560px;
 }
 
 /* === Each app entry === */
@@ -54,10 +63,11 @@ window {
     background-color: transparent;
     color: @neon-blue;
     border: 2px solid transparent;  /* Invisible border to prevent layout shift */
-    transition: background-color 0.1s ease, 
+    /* Removed transitions to prevent jitter when typing */
+    /* transition: background-color 0.1s ease, 
                 border-color 0.1s ease, 
                 color 0.1s ease,
-                box-shadow 0.1s ease;
+                box-shadow 0.1s ease; */
 }
 
 #entry:hover {
@@ -123,6 +133,8 @@ scrollbar slider:active {
 /* === Hidden elements fix === */
 #outer-box {
     margin: 10px;
+    min-width: 580px;
+    max-width: 580px;
 }
 
 /* === Window separator/divider === */
@@ -139,9 +151,10 @@ separator {
     padding: 4px 8px;
     margin: 2px;
     border-radius: 6px;
-    transition: background-color 0.1s ease, 
+    /* Removed transitions to prevent jitter */
+    /* transition: background-color 0.1s ease, 
                 border-color 0.1s ease, 
-                color 0.1s ease;
+                color 0.1s ease; */
 }
 
 #mode:hover {
@@ -194,9 +207,10 @@ separator {
     margin: 2px 6px;
     outline: none;
     color: @neon-blue;
-    transition: background-color 0.1s ease, 
+    /* Removed transitions to prevent jitter */
+    /* transition: background-color 0.1s ease, 
                 border-color 0.1s ease, 
-                color 0.1s ease;
+                color 0.1s ease; */
 }
 
 #dropdown:hover {
@@ -332,9 +346,12 @@ cell:selected {
     }
 }
 
+/* Removed animation from window to prevent jitter when typing */
+/*
 window {
     animation: fadeIn 0.15s ease-out;
 }
+*/
 
 /* === Keyboard focus indicator === */
 *:focus {
