@@ -1,10 +1,12 @@
 @define-color bg rgba(0, 0, 0, 0.6);
 @define-color font rgba(255,255,255,1);
-@define-color active rgba(106, 162, 252,1);
+@define-color active rgb(251, 212, 120);
+@define-color alt-font rgb(25, 161, 246);
 
 * {
     font-family: "Hack Nerd Font","JetBrainsMono Nerd Font", monospace;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 /* === Section styling === */
@@ -54,22 +56,28 @@ tooltip {
 }
 
 #workspaces button {
-    color: @font;
     padding: 0 6px;
+    color: @alt-font;
+    font-weight: bold;
+    text-shadow:
+        0 0 4px #00ffe7,
+        0 0 8px #00d9ff,
+        0 0 16px #00aaff;
 }
 
 /* Make the active workspace button visually smaller than the container */
-#workspaces button.active {
-    background-color: @active;
-    border-radius: 6px;
-    /* shrink a bit more if needed */
-    /* Optional: add scale transform */
-    /* transform: scale(0.95); */
+#workspaces button.active, #window, #clock {
+    color: @active;
+    /* Neon text shadow for font */
+    text-shadow:
+        0 0 4px @alt-font,
+        0 0 8px #ffe066,
+        0 0 16px #ffd700;
 }
+
 
 /* Style clock module */
 #clock {
-    color: @font;
     padding: 8px;
     margin-top: 4px;
     margin-bottom: 4px;
@@ -78,7 +86,6 @@ tooltip {
     
 /* Style Hyprland/window module */
 #window {
-    color: @font;
     padding: 8px;
     margin-top: 4px;
     margin-bottom: 4px;
