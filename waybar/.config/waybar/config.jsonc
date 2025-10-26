@@ -92,6 +92,10 @@
 
     "tray": {
         "spacing": 10,
-        "icon-size": 16
+        "icon-size": 16,
+        "orientation": "horizontal",
+        "detached": false,
+        "show-passive-items": true,
+        "reverse": false
     }
 }
