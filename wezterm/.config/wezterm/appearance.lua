@@ -5,6 +5,98 @@ local M = {}
 
 -- Custom Color Schemes
 M.color_schemes = {
+  ['Neon Cafe'] = {
+    -- Basic colors - Dark neon cafe theme
+    foreground = '#f8f8f0',  -- Bright white text
+    background = '#0a0e1a',  -- Very dark blue-purple
+    
+    -- Cursor colors - Neon orange
+    cursor_bg = '#ffb464',  -- Bright neon orange (matches waybar)
+    cursor_fg = '#0a0e1a',  -- Dark background
+    cursor_border = '#ff8c42',  -- Bright orange border
+    
+    -- Selection colors - Neon orange
+    selection_fg = '#0a0e1a',
+    selection_bg = '#ffb464',
+    
+    -- Scrollbar - Dark blue
+    scrollbar_thumb = '#1a2332',
+    
+    -- Split lines - Dark blue-purple
+    split = '#1a2840',
+    
+    -- ANSI colors - Neon themed palette
+    ansi = {
+      '#1a2332',  -- black - dark blue-gray
+      '#ff6464',  -- red - neon red
+      '#64ff96',  -- green - neon green
+      '#ffb464',  -- yellow - neon orange (matches theme)
+      '#8c9fff',  -- blue - neon blue (matches waybar)
+      '#dc78ff',  -- magenta - neon purple
+      '#64dcff',  -- cyan - neon cyan
+      '#d8dee9',  -- white - light gray
+    },
+    
+    -- Bright ANSI colors - Brighter neon tones
+    brights = {
+      '#3c4a5f',  -- bright black - medium blue-gray
+      '#ff7b7b',  -- bright red - bright neon red
+      '#78ffaa',  -- bright green - bright neon green
+      '#ffc878',  -- bright yellow - bright orange
+      '#a0afff',  -- bright blue - bright neon blue
+      '#e896ff',  -- bright magenta - bright purple
+      '#78e8ff',  -- bright cyan - bright neon cyan
+      '#f8f8f0',  -- bright white - pure white
+    },
+    
+    -- Tab bar colors - Neon cafe theme
+    tab_bar = {
+      background = '#0a0e1a',
+      active_tab = {
+        bg_color = '#1a2332',
+        fg_color = '#ffb464',  -- Neon orange for active
+        intensity = 'Bold',
+        underline = 'None',
+        italic = false,
+        strikethrough = false,
+      },
+      inactive_tab = {
+        bg_color = '#0a0e1a',
+        fg_color = '#8c9fff',  -- Neon blue for inactive
+        intensity = 'Normal',
+        underline = 'None',
+        italic = false,
+        strikethrough = false,
+      },
+      inactive_tab_hover = {
+        bg_color = '#1a2332',
+        fg_color = '#a0afff',  -- Brighter blue on hover
+        italic = false,
+      },
+      new_tab = {
+        bg_color = '#0a0e1a',
+        fg_color = '#8c9fff',
+      },
+      new_tab_hover = {
+        bg_color = '#1a2332',
+        fg_color = '#ffb464',
+        italic = false,
+      },
+    },
+    
+    -- Copy mode colors - Neon orange highlights
+    copy_mode_active_highlight_bg = { Color = '#ffb464' },
+    copy_mode_active_highlight_fg = { Color = '#0a0e1a' },
+    copy_mode_inactive_highlight_bg = { Color = '#1a2332' },
+    copy_mode_inactive_highlight_fg = { Color = '#d8dee9' },
+    
+    -- Quick select colors - Neon theme
+    quick_select_label_bg = { Color = '#ffb464' },
+    quick_select_label_fg = { Color = '#0a0e1a' },
+    quick_select_match_bg = { Color = '#8c9fff' },
+    quick_select_match_fg = { Color = '#0a0e1a' },
+  },
+  
   ['Red Sun'] = {
     -- Basic colors - Warm sunset theme
     foreground = '#f4e4bc',  -- Warm cream text
@@ -102,7 +194,8 @@ M.color_schemes = {
 --M.color_scheme = "BirdsOfParadise"
 --M.color_scheme = 'Dawn (terminal.sexy)'
 --M.color_scheme = 'Earthsong'
-M.color_scheme = 'Red Sun'
+--M.color_scheme = 'Red Sun'
+M.color_scheme = 'Neon Cafe'
 M.font_size = 13
 M.window_background_opacity = 0.75
 M.window_padding = {
