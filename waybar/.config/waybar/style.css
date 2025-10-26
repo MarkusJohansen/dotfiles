@@ -1,7 +1,10 @@
 @define-color bg rgba(0, 0, 0, 0.6);
-@define-color font rgba(255,255,255,1);
-@define-color active rgb(251, 212, 120);
-@define-color alt-font rgb(25, 161, 246);
+@define-color white rgba(255,248,240,1);
+@define-color neon-orange rgb(255, 180, 100);
+@define-color neon-blue rgb(140, 160, 255);
+@define-color neon-purple rgb(220, 120, 255);
+@define-color neon-green rgb(100, 255, 150);
+@define-color neon-red rgb(255, 100, 100);
 
 * {
     font-family: "Hack Nerd Font","JetBrainsMono Nerd Font", monospace;
@@ -14,7 +17,7 @@ window#waybar {
   margin: 20px;
   padding: 10px;
   background: transparent;
-  color: @font;
+  color: @white;
   border-radius: 12px;
 }
 
@@ -39,13 +42,33 @@ window#waybar {
   margin: 0 10px;
 }
 
+/* === Neon effects === */
+/* passive */
+.modules-left, .modules-right, tooltip {
+    font-weight: bold;
+    text-shadow:
+        0 0 4px @neon-blue,
+        0 0 8px @neon-blue,
+        0 0 16px @neon-blue,
+        0 0 24px @neon-blue;
+}
+
+/* active neon effect */
+#workspaces button.active, #window, #clock {
+  color: @neon-orange;
+  text-shadow:
+      0 0 4px @neon-orange,
+      0 0 8px @neon-orange,
+      0 0 16px @neon-orange;
+}
+
+
 /* === Tooltip styling === */
 tooltip {
   background-color: @bg;
   border-radius: 12px;
   padding: 10px;
 }
-
 
 
 /* === Workspace styling === */
@@ -57,24 +80,7 @@ tooltip {
 
 #workspaces button {
     padding: 0 6px;
-    color: @alt-font;
-    font-weight: bold;
-    text-shadow:
-        0 0 4px #00ffe7,
-        0 0 8px #00d9ff,
-        0 0 16px #00aaff;
 }
-
-/* Make the active workspace button visually smaller than the container */
-#workspaces button.active, #window, #clock {
-    color: @active;
-    /* Neon text shadow for font */
-    text-shadow:
-        0 0 4px @alt-font,
-        0 0 8px #ffe066,
-        0 0 16px #ffd700;
-}
-
 
 /* Style clock module */
 #clock {
@@ -92,34 +98,64 @@ tooltip {
     border-radius: 8px;
 }
 
+/* Hide the window module when the workspace has no windows */
+window#waybar.empty #window {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+  min-height: 0;
+  box-shadow: none;
+  font-size: 0;
+  color: transparent;
+}
 
 /* Style bluetooth module */
 #bluetooth {
-    font-size: 12px;
-    font-weight: bold;
-    border-radius: 8px;
-    color: @font;
+  color: @neon-blue;
 }
 
-/* Style pulseaudio module */
+#network {
+  color: @neon-blue;
+}
 
+/* Style pulseaudio with unique neon purple effect */
 #pulseaudio {
-    font-size: 12px;
-    font-weight: bold;
-    border-radius: 8px;
-    color: @font;
+  color: @neon-purple;
+  text-shadow:
+      0 0 5px @neon-purple,
+      0 0 10px @neon-purple,
+      0 0 20px @neon-purple,
+      0 0 30px @neon-purple;
 }
 
-/* Hide the window module when the workspace has no windows */
-window#waybar.empty #window {
-    background: transparent;
-    border: 0;
-    padding: 0;
-    margin: 0;
-    min-width: 0;
-    min-height: 0;
-    box-shadow: none;
-    font-size: 0;
-    color: transparent;
-  }
-  
+/* Battery charging - green neon effect */
+#battery.charging, #battery.plugged {
+  color: @neon-green;
+  text-shadow:
+      0 0 5px @neon-green,
+      0 0 10px @neon-green,
+      0 0 20px @neon-green,
+      0 0 30px @neon-green;
+}
+
+/* Battery warning - orange neon effect */
+#battery.warning {
+  color: @neon-orange;
+  text-shadow:
+      0 0 5px @neon-orange,
+      0 0 10px @neon-orange,
+      0 0 20px @neon-orange,
+      0 0 30px @neon-orange;
+}
+
+/* Battery critical - red neon effect */
+#battery.critical {
+  color: @neon-red;
+  text-shadow:
+      0 0 5px @neon-red,
+      0 0 10px @neon-red,
+      0 0 20px @neon-red,
+      0 0 30px @neon-red;
+}
