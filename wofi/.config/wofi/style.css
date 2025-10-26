@@ -1,36 +1,43 @@
-@define-color bg rgba(24, 19, 26, 0.85);
-@define-color bg-accent rgba(40, 32, 36, 0.6);
-@define-color inactive rgba(51, 22, 26, 0.5);
-@define-color active rgba(255, 140, 66, 1);
+/* Neon Cafe Theme Colors */
+@define-color bg rgba(10, 14, 26, 0.9);  /* Dark blue-purple background */
+@define-color bg-accent rgba(26, 35, 50, 0.8);  /* Darker blue-purple accent */
+@define-color neon-orange rgb(255, 180, 100);  /* Neon orange - active/selected */
+@define-color neon-blue rgb(140, 159, 255);  /* Neon blue - text */
+@define-color inactive rgba(60, 74, 95, 0.5);  /* Dimmed blue-gray */
 
 
 
 /* === General window styling === */
 window {
     background-color: @bg; 
-    border-radius: 5px;
+    border-radius: 12px;
+    border: 3px solid @neon-orange;
     font-family: "JetBrains Mono", monospace;
     font-size: 14px;
+    box-shadow: 0 0 20px rgba(255, 180, 100, 0.4),
+                0 0 40px rgba(255, 140, 66, 0.2);
 }
 
 /* === Input box (search bar) === */
 #input {
     margin: 10px;
     padding: 8px 12px;
-    border: none;
-    border-radius: 6px;
+    border: 2px solid @neon-blue;
+    border-radius: 8px;
     background-color: @bg-accent;
-    color: @active;
-    caret-color: @active;
+    color: @neon-orange;
+    caret-color: @neon-orange;
     outline: none;
     font-weight: bold;
+    box-shadow: 0 0 10px rgba(140, 159, 255, 0.3);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 #input:focused {
     background-color: @bg-accent;
     outline: none;
-    box-shadow: none;
-    border: none;
+    border: 2px solid @neon-orange;
+    box-shadow: 0 0 15px rgba(255, 180, 100, 0.5);
 }
 
 /* === Scroll area === */
@@ -42,16 +49,31 @@ window {
 /* === Each app entry === */
 #entry {
     padding: 8px 12px;
-    border-radius: 6px;
+    border-radius: 8px;
     margin: 2px 6px;
     background-color: transparent;
-    color: @active;
+    color: @neon-blue;
+    border: 2px solid transparent;  /* Invisible border to prevent layout shift */
+    transition: background-color 0.1s ease, 
+                border-color 0.1s ease, 
+                color 0.1s ease,
+                box-shadow 0.1s ease;
+}
+
+#entry:hover {
+    background-color: rgba(26, 35, 50, 0.5);
+    color: @neon-orange;
+    border: 2px solid rgba(255, 180, 100, 0.3);
 }
 
 #entry:selected {
     background-color: @bg-accent;
-    border: none;
+    color: @neon-orange;
+    border: 2px solid @neon-orange;
     outline: none;
+    box-shadow: 0 0 12px rgba(255, 180, 100, 0.3),
+                inset 0 0 8px rgba(255, 180, 100, 0.1);
+    text-shadow: 0 0 8px rgba(255, 180, 100, 0.5);
 }
 
 /* === Text inside entries === */
@@ -59,23 +81,43 @@ window {
     margin-left: 6px;
 }
 
-/* === Placeholder text === */
+/* === Selected entry text === */
 #entry:selected #text {
     font-weight: bold;
-    color: @active;
+    color: @neon-orange;
 }
 
 /* === Scrollbar === */
 #scroll {
     border: none;
     margin: 4px;
-    color: @bg-accent;
+}
+
+scrollbar {
+    background: transparent;
+    border: none;
+}
+
+scrollbar slider {
+    background-color: rgba(140, 159, 255, 0.3);
+    border: none;
+    border-radius: 4px;
+    min-width: 6px;
+}
+
+scrollbar slider:hover {
+    background-color: rgba(140, 159, 255, 0.5);
+}
+
+scrollbar slider:active {
+    background-color: rgba(255, 180, 100, 0.6);
 }
 
 /* === Bottom bar (if used) === */
 #prompt {
-    color: @active;
+    color: @neon-orange;
     margin: 6px;
+    font-weight: bold;
 }
 
 /* === Hidden elements fix === */
@@ -83,44 +125,226 @@ window {
     margin: 10px;
 }
 
+/* === Window separator/divider === */
+separator {
+    background-color: rgba(140, 159, 255, 0.2);
+    margin: 4px 10px;
+}
+
+/* === Mode switcher buttons === */
+#mode {
+    background-color: transparent;
+    border: 2px solid transparent;
+    color: @neon-blue;
+    padding: 4px 8px;
+    margin: 2px;
+    border-radius: 6px;
+    transition: background-color 0.1s ease, 
+                border-color 0.1s ease, 
+                color 0.1s ease;
+}
+
+#mode:hover {
+    border: 2px solid rgba(255, 180, 100, 0.3);
+    color: @neon-orange;
+}
+
+#mode:selected {
+    background-color: @bg-accent;
+    border: 2px solid @neon-orange;
+    color: @neon-orange;
+    box-shadow: 0 0 8px rgba(255, 180, 100, 0.2);
+}
+
 /* === Icons styling === */
 #search-icon,
 #back-icon,
 #dropdown-caret,
 #icon-button {
-    color: @active;
+    color: @neon-blue;
     background-color: transparent;
     border: none;
     outline: none;
 }
 
+/* === App icons === */
+#entry image {
+    margin-right: 8px;
+    padding: 2px;
+}
+
+#entry:selected image {
+    filter: drop-shadow(0 0 4px rgba(255, 180, 100, 0.5));
+}
+
+/* === No results message === */
+#no-results {
+    color: @neon-blue;
+    font-size: 16px;
+    padding: 20px;
+    text-align: center;
+}
+
 /* === Dropdown elements === */
 #dropdown {
     background-color: @bg-accent;
-    border: none;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 6px 10px;
+    margin: 2px 6px;
     outline: none;
-    color: @active;
+    color: @neon-blue;
+    transition: background-color 0.1s ease, 
+                border-color 0.1s ease, 
+                color 0.1s ease;
+}
+
+#dropdown:hover {
+    background-color: rgba(26, 35, 50, 0.5);
+    border: 2px solid rgba(255, 180, 100, 0.3);
+    color: @neon-orange;
 }
 
 #dropdown:selected {
     background-color: @bg-accent;
+    border: 2px solid @neon-orange;
+    outline: none;
+    color: @neon-orange;
+    box-shadow: 0 0 10px rgba(255, 180, 100, 0.3);
+}
+
+/* === Menu items (collapsed/expanded elements) === */
+menu,
+menuitem,
+menubar,
+menu item {
+    background-color: @bg-accent;
+    color: @neon-blue;
     border: none;
     outline: none;
 }
 
-/* === All icon elements === */
+menuitem:hover,
+menu item:hover {
+    background-color: rgba(26, 35, 50, 0.5);
+    color: @neon-orange;
+}
+
+menuitem:selected,
+menu item:selected {
+    background-color: @bg-accent;
+    color: @neon-orange;
+    border: 2px solid @neon-orange;
+}
+
+/* === Expander/Collapsible content === */
+expander,
+expander-content,
+box {
+    background-color: transparent;
+    color: @neon-blue;
+    border: none;
+}
+
+expander > title {
+    background-color: transparent;
+    color: @neon-blue;
+}
+
+expander > box {
+    background-color: transparent;
+}
+
+/* === List items in expanded sections === */
+list,
+listitem,
+row {
+    background-color: transparent;
+    color: @neon-blue;
+    border: none;
+}
+
+listitem:hover,
+row:hover {
+    background-color: rgba(26, 35, 50, 0.5);
+    color: @neon-orange;
+}
+
+listitem:selected,
+row:selected {
+    background-color: @bg-accent;
+    color: @neon-orange;
+}
+
+/* === All elements default styling === */
 * {
     border: none;
     outline: none;
 }
 
-/* === Animations (optional, GTK 3.24+) === */
+/* === Force dark backgrounds for all GTK widgets === */
+* {
+    background-color: inherit;
+}
+
+button,
+label,
+image {
+    background-color: transparent;
+}
+
+/* === Override any white/light backgrounds === */
+treeview,
+treeview.view,
+cell,
+cellview {
+    background-color: transparent;
+    color: @neon-blue;
+}
+
+treeview:selected,
+treeview.view:selected,
+cell:selected {
+    background-color: @bg-accent;
+    color: @neon-orange;
+}
+
+/* === Animations === */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-5px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { 
+        opacity: 0; 
+        transform: translateY(-10px) scale(0.98);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(255, 180, 100, 0.4),
+                    0 0 40px rgba(255, 140, 66, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(255, 180, 100, 0.5),
+                    0 0 50px rgba(255, 140, 66, 0.3);
+    }
 }
 
 window {
-    animation: fadeIn 0.12s ease-in-out;
+    animation: fadeIn 0.15s ease-out;
+}
+
+/* === Keyboard focus indicator === */
+*:focus {
+    outline: 2px solid rgba(255, 180, 100, 0.5);
+    outline-offset: 2px;
+}
+
+#input:focus,
+#entry:selected,
+#dropdown:selected {
+    outline: none;
 }
 
