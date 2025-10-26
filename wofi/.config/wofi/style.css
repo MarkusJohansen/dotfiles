@@ -20,6 +20,7 @@ window {
     max-width: 600px;
     min-height: 400px;
     max-height: 400px;
+    animation: fadeIn 0.15s ease-out;
 }
 
 /* === Input box (search bar) === */
@@ -34,8 +35,7 @@ window {
     outline: none;
     font-weight: bold;
     box-shadow: 0 0 10px rgba(140, 159, 255, 0.3);
-    /* Removed transition to prevent jitter when typing */
-    /* transition: border-color 0.2s ease, box-shadow 0.2s ease; */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
     min-width: 560px;
     max-width: 560px;
 }
@@ -63,11 +63,10 @@ window {
     background-color: transparent;
     color: @neon-blue;
     border: 2px solid transparent;  /* Invisible border to prevent layout shift */
-    /* Removed transitions to prevent jitter when typing */
-    /* transition: background-color 0.1s ease, 
+    transition: background-color 0.1s ease, 
                 border-color 0.1s ease, 
                 color 0.1s ease,
-                box-shadow 0.1s ease; */
+                box-shadow 0.1s ease;
 }
 
 #entry:hover {
@@ -151,10 +150,9 @@ separator {
     padding: 4px 8px;
     margin: 2px;
     border-radius: 6px;
-    /* Removed transitions to prevent jitter */
-    /* transition: background-color 0.1s ease, 
+    transition: background-color 0.1s ease, 
                 border-color 0.1s ease, 
-                color 0.1s ease; */
+                color 0.1s ease;
 }
 
 #mode:hover {
@@ -207,10 +205,9 @@ separator {
     margin: 2px 6px;
     outline: none;
     color: @neon-blue;
-    /* Removed transitions to prevent jitter */
-    /* transition: background-color 0.1s ease, 
+    transition: background-color 0.1s ease, 
                 border-color 0.1s ease, 
-                color 0.1s ease; */
+                color 0.1s ease;
 }
 
 #dropdown:hover {
@@ -324,34 +321,38 @@ cell:selected {
 }
 
 /* === Animations === */
-@keyframes fadeIn {
+@keyframes slideUp {
     from { 
-        opacity: 0; 
-        transform: translateY(-10px) scale(0.98);
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
     }
     to { 
-        opacity: 1; 
+        opacity: 1;
         transform: translateY(0) scale(1);
     }
 }
 
-@keyframes glowPulse {
-    0%, 100% {
-        box-shadow: 0 0 20px rgba(255, 180, 100, 0.4),
-                    0 0 40px rgba(255, 140, 66, 0.2);
+@keyframes fadeIn {
+    from { 
+        opacity: 0;
     }
-    50% {
-        box-shadow: 0 0 25px rgba(255, 180, 100, 0.5),
-                    0 0 50px rgba(255, 140, 66, 0.3);
+    to { 
+        opacity: 1;
     }
 }
 
-/* Removed animation from window to prevent jitter when typing */
-/*
-window {
-    animation: fadeIn 0.15s ease-out;
+/* Animate the content inside since window can't animate with noanim */
+#outer-box {
+    animation: slideUp 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
-*/
+
+#input {
+    animation: fadeIn 0.25s ease-out;
+}
+
+#scroll {
+    animation: fadeIn 0.3s ease-out;
+}
 
 /* === Keyboard focus indicator === */
 *:focus {
