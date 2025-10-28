@@ -1,0 +1,99 @@
+
+{
+    "layer": "top",
+    "spacing": 8,
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "tray",
+        "bluetooth",
+        "network",
+        "pulseaudio",
+        "battery"
+    ],
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "active": "", // glyph when a workspace is active
+            "urgent": "",
+            "default": ""
+          },
+        "on-click": "hyprctl dispatch workspace e+1",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "all-outputs": true,
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": []
+        }
+    },
+
+    "hyprland/window": {
+        "format": "{title}",
+        "max-length": 50,
+        "separate-outputs": true,
+        "empty-format": ""
+    },
+
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "interval": 30,
+        "states": {
+            "good": 80,
+            "warning": 30,
+            "critical": 10
+        }
+    },
+
+    "network": {
+        "format-wifi": "  {signalStrength}%",
+        "format-ethernet": " {ifname}",
+        "format-disconnected": " Disconnected",
+        "tooltip-format": "{ifname} via {ipaddr}/{cidr}\nSSID: {essid}",
+        "interval": 10,
+        "on-click": "nm-connection-editor"
+    },
+
+    "bluetooth": {
+        "format": "",
+        "format-disabled": "",
+        "tooltip-format": "{device_alias} {status}",
+        "interval": 20,
+        "on-click": "blueman-manager"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": " Muted",
+        "format-icons": {
+            "headphones": "",
+            "handsfree": "",
+            "hdmi": "",
+            "default": ["", "", ""]
+        },
+        "scroll-step": 5,
+        "on-click": "pavucontrol"
+    },
+
+    "clock": {
+        "format": "{:%Y-%m-%d %H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+
+    "tray": {
+        "spacing": 10,
+        "icon-size": 16
+    }
+}
