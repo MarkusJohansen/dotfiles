@@ -1,0 +1,142 @@
+@define-color bg rgba(24, 19, 26, 0.5);
+@define-color bg-accent rgba(40, 32, 36, 0.6);
+@define-color inactive rgba(51, 22, 26, 0.5);
+@define-color active rgba(255, 140, 66, 1);
+
+* {
+    font-family: "JetBrains Mono","Fira Code","Cascadia Code","SF Mono","Monaco","Cascadia Mono","Roboto Mono","Consolas","Courier New", monospace;
+    font-size: 15px;
+}
+
+window#waybar {
+    background: @bg;
+}
+
+/* Tooltip */
+tooltip {
+  background: @bg;
+  border: 1px solid @bg-accent;
+}
+
+tooltip label {
+  color: @active;
+}
+
+  
+/* Style workspace module */
+
+#workspaces {
+    background-color: @bg;
+    border-radius: 20px;
+    padding: 6px 12px;
+    margin: 0 8px;
+    border: 1px solid transparent;
+}
+
+#workspaces button {
+    min-width: 6px;
+    min-height: 6px;
+    padding: 3px;
+    margin: 0 3px;
+    border-radius: 50%;
+    background-color: @bg-accent;
+    border: none;
+    color: transparent;
+    font-size: 0;
+}
+
+#workspaces button:hover {
+    background-color: rgba(255, 231, 83, 0.6);
+}
+
+#workspaces button.active {
+    background-color: @active;
+}
+
+#workspaces button.urgent {
+    background-color: @bg-accent;
+}
+
+/* Style clock module */
+
+#clock {
+    font-size: 15px;
+    font-weight: bold;
+    color: @active;
+    letter-spacing: 0.15em;
+}
+
+/* Style Hyprland/window module */
+
+#window {
+    font-size: 12px;
+    font-weight: bold;
+    color: @active;
+}
+/* Style battery module */
+
+#battery {
+    font-size: 12px;
+    font-weight: bold;
+    color: @active;
+}
+
+/* Style network module */
+
+#network {
+    background-color: @bg;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 8px;
+    color: @active;
+}
+
+/* Style bluetooth module */
+
+#bluetooth {
+    background-color: @bg;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 8px;
+    color: @active;
+}
+
+/* Style pulseaudio module */
+
+#pulseaudio {
+    background-color: @bg;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 8px;
+    color: @active;
+}
+
+/* Style tray module */
+
+#tray {
+    background-color: @bg;
+    border-radius: 8px;
+    padding: 0 8px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+/* Hide the window module when the workspace has no windows */
+window#waybar.empty #window {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+    min-height: 0;
+    box-shadow: none;
+    font-size: 0;
+    color: transparent;
+  }
+  
