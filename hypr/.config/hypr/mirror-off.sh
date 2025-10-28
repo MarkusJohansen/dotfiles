@@ -14,3 +14,4 @@ hyprctl dispatch exec "waybar --config ~/dotfiles/waybar/.config/waybar/config.j
 echo "✅ Mirror mode disabled!"
 echo "   Monitors will use extended desktop mode"
 
+
